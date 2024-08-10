@@ -30,4 +30,4 @@ jobs:
         with:
           branch: gh-pages
           folder: dist/mohit-portfolio  # the folder where your Angular build output is located
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.TOKEN }}
