@@ -1,336 +1,976 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<app-loader></app-loader>
 
-<style>
-  :host {
-    --bright-blue: oklch(51.01% 0.274 263.83);
-    --electric-violet: oklch(53.18% 0.28 296.97);
-    --french-violet: oklch(47.66% 0.246 305.88);
-    --vivid-pink: oklch(69.02% 0.277 332.77);
-    --hot-red: oklch(61.42% 0.238 15.34);
-    --orange-red: oklch(63.32% 0.24 31.68);
-
-    --gray-900: oklch(19.37% 0.006 300.98);
-    --gray-700: oklch(36.98% 0.014 302.71);
-    --gray-400: oklch(70.9% 0.015 304.04);
-
-    --red-to-pink-to-purple-vertical-gradient: linear-gradient(
-      180deg,
-      var(--orange-red) 0%,
-      var(--vivid-pink) 50%,
-      var(--electric-violet) 100%
-    );
-
-    --red-to-pink-to-purple-horizontal-gradient: linear-gradient(
-      90deg,
-      var(--orange-red) 0%,
-      var(--vivid-pink) 50%,
-      var(--electric-violet) 100%
-    );
-
-    --pill-accent: var(--bright-blue);
-
-    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-      "Segoe UI Symbol";
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  h1 {
-    font-size: 3.125rem;
-    color: var(--gray-900);
-    font-weight: 500;
-    line-height: 100%;
-    letter-spacing: -0.125rem;
-    margin: 0;
-    font-family: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-      "Segoe UI Symbol";
-  }
-
-  p {
-    margin: 0;
-    color: var(--gray-700);
-  }
-
-  main {
-    width: 100%;
-    min-height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-    box-sizing: inherit;
-    position: relative;
-  }
-
-  .angular-logo {
-    max-width: 9.2rem;
-  }
-
-  .content {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    max-width: 700px;
-    margin-bottom: 3rem;
-  }
-
-  .content h1 {
-    margin-top: 1.75rem;
-  }
-
-  .content p {
-    margin-top: 1.5rem;
-  }
-
-  .divider {
-    width: 1px;
-    background: var(--red-to-pink-to-purple-vertical-gradient);
-    margin-inline: 0.5rem;
-  }
-
-  .pill-group {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    flex-wrap: wrap;
-    gap: 1.25rem;
-  }
-
-  .pill {
-    display: flex;
-    align-items: center;
-    --pill-accent: var(--bright-blue);
-    background: color-mix(in srgb, var(--pill-accent) 5%, transparent);
-    color: var(--pill-accent);
-    padding-inline: 0.75rem;
-    padding-block: 0.375rem;
-    border-radius: 2.75rem;
-    border: 0;
-    transition: background 0.3s ease;
-    font-family: var(--inter-font);
-    font-size: 0.875rem;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 1.4rem;
-    letter-spacing: -0.00875rem;
-    text-decoration: none;
-  }
-
-  .pill:hover {
-    background: color-mix(in srgb, var(--pill-accent) 15%, transparent);
-  }
-
-  .pill-group .pill:nth-child(6n + 1) {
-    --pill-accent: var(--bright-blue);
-  }
-  .pill-group .pill:nth-child(6n + 2) {
-    --pill-accent: var(--french-violet);
-  }
-  .pill-group .pill:nth-child(6n + 3),
-  .pill-group .pill:nth-child(6n + 4),
-  .pill-group .pill:nth-child(6n + 5) {
-    --pill-accent: var(--hot-red);
-  }
-
-  .pill-group svg {
-    margin-inline-start: 0.25rem;
-  }
-
-  .social-links {
-    display: flex;
-    align-items: center;
-    gap: 0.73rem;
-    margin-top: 1.5rem;
-  }
-
-  .social-links path {
-    transition: fill 0.3s ease;
-    fill: var(--gray-400);
-  }
-
-  .social-links a:hover svg path {
-    fill: var(--gray-900);
-  }
-
-  @media screen and (max-width: 650px) {
-    .content {
-      flex-direction: column;
-      width: max-content;
-    }
-
-    .divider {
-      height: 1px;
-      width: 100%;
-      background: var(--red-to-pink-to-purple-horizontal-gradient);
-      margin-block: 1.5rem;
-    }
-  }
-</style>
-
-<main class="main">
-  <div class="content">
-    <div class="left-side">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 982 239"
-        fill="none"
-        class="angular-logo"
-      >
-        <g clip-path="url(#a)">
-          <path
-            fill="url(#b)"
-            d="M388.676 191.625h30.849L363.31 31.828h-35.758l-56.215 159.797h30.848l13.174-39.356h60.061l13.256 39.356Zm-65.461-62.675 21.602-64.311h1.227l21.602 64.311h-44.431Zm126.831-7.527v70.202h-28.23V71.839h27.002v20.374h1.392c2.782-6.71 7.2-12.028 13.255-15.956 6.056-3.927 13.584-5.89 22.503-5.89 8.264 0 15.465 1.8 21.684 5.318 6.137 3.518 10.964 8.673 14.319 15.382 3.437 6.71 5.074 14.81 4.992 24.383v76.175h-28.23v-71.92c0-8.019-2.046-14.237-6.219-18.819-4.173-4.5-9.819-6.791-17.102-6.791-4.91 0-9.328 1.063-13.174 3.272-3.846 2.128-6.792 5.237-9.001 9.328-2.046 4.009-3.191 8.918-3.191 14.728ZM589.233 239c-10.147 0-18.82-1.391-26.103-4.091-7.282-2.7-13.092-6.382-17.511-10.964-4.418-4.582-7.528-9.655-9.164-15.219l25.448-6.136c1.145 2.372 2.782 4.663 4.991 6.954 2.209 2.291 5.155 4.255 8.837 5.81 3.683 1.554 8.428 2.291 14.074 2.291 8.019 0 14.647-1.964 19.884-5.81 5.237-3.845 7.856-10.227 7.856-19.064v-22.665h-1.391c-1.473 2.946-3.601 5.892-6.383 9.001-2.782 3.109-6.464 5.645-10.965 7.691-4.582 2.046-10.228 3.109-17.101 3.109-9.165 0-17.511-2.209-25.039-6.545-7.446-4.337-13.42-10.883-17.757-19.474-4.418-8.673-6.628-19.473-6.628-32.565 0-13.091 2.21-24.301 6.628-33.383 4.419-9.082 10.311-15.955 17.839-20.7 7.528-4.746 15.874-7.037 25.039-7.037 7.037 0 12.846 1.145 17.347 3.518 4.582 2.373 8.182 5.236 10.883 8.51 2.7 3.272 4.746 6.382 6.137 9.327h1.554v-19.8h27.821v121.749c0 10.228-2.454 18.737-7.364 25.447-4.91 6.709-11.538 11.7-20.048 15.055-8.509 3.355-18.165 4.991-28.884 4.991Zm.245-71.266c5.974 0 11.047-1.473 15.302-4.337 4.173-2.945 7.446-7.118 9.573-12.519 2.21-5.482 3.274-12.027 3.274-19.637 0-7.609-1.064-14.155-3.274-19.8-2.127-5.646-5.318-10.064-9.491-13.255-4.174-3.11-9.329-4.746-15.384-4.746s-11.537 1.636-15.792 4.91c-4.173 3.272-7.365 7.772-9.492 13.418-2.128 5.727-3.191 12.191-3.191 19.392 0 7.2 1.063 13.745 3.273 19.228 2.127 5.482 5.318 9.736 9.573 12.764 4.174 3.027 9.41 4.582 15.629 4.582Zm141.56-26.51V71.839h28.23v119.786h-27.412v-21.273h-1.227c-2.7 6.709-7.119 12.191-13.338 16.446-6.137 4.255-13.747 6.382-22.748 6.382-7.855 0-14.81-1.718-20.783-5.237-5.974-3.518-10.72-8.591-14.075-15.382-3.355-6.709-5.073-14.891-5.073-24.464V71.839h28.312v71.921c0 7.609 2.046 13.664 6.219 18.083 4.173 4.5 9.655 6.709 16.365 6.709 4.173 0 8.183-.982 12.111-3.028 3.927-2.045 7.118-5.072 9.655-9.082 2.537-4.091 3.764-9.164 3.764-15.218Zm65.707-109.395v159.796h-28.23V31.828h28.23Zm44.841 162.169c-7.61 0-14.402-1.391-20.457-4.091-6.055-2.7-10.883-6.791-14.32-12.109-3.518-5.319-5.237-11.946-5.237-19.801 0-6.791 1.228-12.355 3.765-16.773 2.536-4.419 5.891-7.937 10.228-10.637 4.337-2.618 9.164-4.664 14.647-6.055 5.4-1.391 11.046-2.373 16.856-3.027 7.037-.737 12.683-1.391 17.102-1.964 4.337-.573 7.528-1.555 9.574-2.782 1.963-1.309 3.027-3.273 3.027-5.973v-.491c0-5.891-1.718-10.391-5.237-13.664-3.518-3.191-8.51-4.828-15.056-4.828-6.955 0-12.356 1.473-16.447 4.5-4.009 3.028-6.71 6.546-8.183 10.719l-26.348-3.764c2.046-7.282 5.483-13.336 10.31-18.328 4.746-4.909 10.638-8.59 17.511-11.045 6.955-2.455 14.565-3.682 22.912-3.682 5.809 0 11.537.654 17.265 2.045s10.965 3.6 15.711 6.71c4.746 3.109 8.51 7.282 11.455 12.6 2.864 5.318 4.337 11.946 4.337 19.883v80.184h-27.166v-16.446h-.9c-1.719 3.355-4.092 6.464-7.201 9.328-3.109 2.864-6.955 5.237-11.619 6.955-4.828 1.718-10.229 2.536-16.529 2.536Zm7.364-20.701c5.646 0 10.556-1.145 14.729-3.354 4.173-2.291 7.364-5.237 9.655-9.001 2.292-3.763 3.355-7.854 3.355-12.273v-14.155c-.9.737-2.373 1.391-4.5 2.046-2.128.654-4.419 1.145-7.037 1.636-2.619.491-5.155.9-7.692 1.227-2.537.328-4.746.655-6.628.901-4.173.572-8.019 1.472-11.292 2.781-3.355 1.31-5.973 3.11-7.855 5.401-1.964 2.291-2.864 5.318-2.864 8.918 0 5.237 1.882 9.164 5.728 11.782 3.682 2.782 8.51 4.091 14.401 4.091Zm64.643 18.328V71.839h27.412v19.965h1.227c2.21-6.955 5.974-12.274 11.292-16.038 5.319-3.763 11.456-5.645 18.329-5.645 1.555 0 3.355.082 5.237.163 1.964.164 3.601.328 4.91.573v25.938c-1.227-.41-3.109-.819-5.646-1.146a58.814 58.814 0 0 0-7.446-.49c-5.155 0-9.738 1.145-13.829 3.354-4.091 2.209-7.282 5.236-9.655 9.164-2.373 3.927-3.519 8.427-3.519 13.5v70.448h-28.312ZM222.077 39.192l-8.019 125.923L137.387 0l84.69 39.192Zm-53.105 162.825-57.933 33.056-57.934-33.056 11.783-28.556h92.301l11.783 28.556ZM111.039 62.675l30.357 73.803H80.681l30.358-73.803ZM7.937 165.115 0 39.192 84.69 0 7.937 165.115Z"
-          />
-          <path
-            fill="url(#c)"
-            d="M388.676 191.625h30.849L363.31 31.828h-35.758l-56.215 159.797h30.848l13.174-39.356h60.061l13.256 39.356Zm-65.461-62.675 21.602-64.311h1.227l21.602 64.311h-44.431Zm126.831-7.527v70.202h-28.23V71.839h27.002v20.374h1.392c2.782-6.71 7.2-12.028 13.255-15.956 6.056-3.927 13.584-5.89 22.503-5.89 8.264 0 15.465 1.8 21.684 5.318 6.137 3.518 10.964 8.673 14.319 15.382 3.437 6.71 5.074 14.81 4.992 24.383v76.175h-28.23v-71.92c0-8.019-2.046-14.237-6.219-18.819-4.173-4.5-9.819-6.791-17.102-6.791-4.91 0-9.328 1.063-13.174 3.272-3.846 2.128-6.792 5.237-9.001 9.328-2.046 4.009-3.191 8.918-3.191 14.728ZM589.233 239c-10.147 0-18.82-1.391-26.103-4.091-7.282-2.7-13.092-6.382-17.511-10.964-4.418-4.582-7.528-9.655-9.164-15.219l25.448-6.136c1.145 2.372 2.782 4.663 4.991 6.954 2.209 2.291 5.155 4.255 8.837 5.81 3.683 1.554 8.428 2.291 14.074 2.291 8.019 0 14.647-1.964 19.884-5.81 5.237-3.845 7.856-10.227 7.856-19.064v-22.665h-1.391c-1.473 2.946-3.601 5.892-6.383 9.001-2.782 3.109-6.464 5.645-10.965 7.691-4.582 2.046-10.228 3.109-17.101 3.109-9.165 0-17.511-2.209-25.039-6.545-7.446-4.337-13.42-10.883-17.757-19.474-4.418-8.673-6.628-19.473-6.628-32.565 0-13.091 2.21-24.301 6.628-33.383 4.419-9.082 10.311-15.955 17.839-20.7 7.528-4.746 15.874-7.037 25.039-7.037 7.037 0 12.846 1.145 17.347 3.518 4.582 2.373 8.182 5.236 10.883 8.51 2.7 3.272 4.746 6.382 6.137 9.327h1.554v-19.8h27.821v121.749c0 10.228-2.454 18.737-7.364 25.447-4.91 6.709-11.538 11.7-20.048 15.055-8.509 3.355-18.165 4.991-28.884 4.991Zm.245-71.266c5.974 0 11.047-1.473 15.302-4.337 4.173-2.945 7.446-7.118 9.573-12.519 2.21-5.482 3.274-12.027 3.274-19.637 0-7.609-1.064-14.155-3.274-19.8-2.127-5.646-5.318-10.064-9.491-13.255-4.174-3.11-9.329-4.746-15.384-4.746s-11.537 1.636-15.792 4.91c-4.173 3.272-7.365 7.772-9.492 13.418-2.128 5.727-3.191 12.191-3.191 19.392 0 7.2 1.063 13.745 3.273 19.228 2.127 5.482 5.318 9.736 9.573 12.764 4.174 3.027 9.41 4.582 15.629 4.582Zm141.56-26.51V71.839h28.23v119.786h-27.412v-21.273h-1.227c-2.7 6.709-7.119 12.191-13.338 16.446-6.137 4.255-13.747 6.382-22.748 6.382-7.855 0-14.81-1.718-20.783-5.237-5.974-3.518-10.72-8.591-14.075-15.382-3.355-6.709-5.073-14.891-5.073-24.464V71.839h28.312v71.921c0 7.609 2.046 13.664 6.219 18.083 4.173 4.5 9.655 6.709 16.365 6.709 4.173 0 8.183-.982 12.111-3.028 3.927-2.045 7.118-5.072 9.655-9.082 2.537-4.091 3.764-9.164 3.764-15.218Zm65.707-109.395v159.796h-28.23V31.828h28.23Zm44.841 162.169c-7.61 0-14.402-1.391-20.457-4.091-6.055-2.7-10.883-6.791-14.32-12.109-3.518-5.319-5.237-11.946-5.237-19.801 0-6.791 1.228-12.355 3.765-16.773 2.536-4.419 5.891-7.937 10.228-10.637 4.337-2.618 9.164-4.664 14.647-6.055 5.4-1.391 11.046-2.373 16.856-3.027 7.037-.737 12.683-1.391 17.102-1.964 4.337-.573 7.528-1.555 9.574-2.782 1.963-1.309 3.027-3.273 3.027-5.973v-.491c0-5.891-1.718-10.391-5.237-13.664-3.518-3.191-8.51-4.828-15.056-4.828-6.955 0-12.356 1.473-16.447 4.5-4.009 3.028-6.71 6.546-8.183 10.719l-26.348-3.764c2.046-7.282 5.483-13.336 10.31-18.328 4.746-4.909 10.638-8.59 17.511-11.045 6.955-2.455 14.565-3.682 22.912-3.682 5.809 0 11.537.654 17.265 2.045s10.965 3.6 15.711 6.71c4.746 3.109 8.51 7.282 11.455 12.6 2.864 5.318 4.337 11.946 4.337 19.883v80.184h-27.166v-16.446h-.9c-1.719 3.355-4.092 6.464-7.201 9.328-3.109 2.864-6.955 5.237-11.619 6.955-4.828 1.718-10.229 2.536-16.529 2.536Zm7.364-20.701c5.646 0 10.556-1.145 14.729-3.354 4.173-2.291 7.364-5.237 9.655-9.001 2.292-3.763 3.355-7.854 3.355-12.273v-14.155c-.9.737-2.373 1.391-4.5 2.046-2.128.654-4.419 1.145-7.037 1.636-2.619.491-5.155.9-7.692 1.227-2.537.328-4.746.655-6.628.901-4.173.572-8.019 1.472-11.292 2.781-3.355 1.31-5.973 3.11-7.855 5.401-1.964 2.291-2.864 5.318-2.864 8.918 0 5.237 1.882 9.164 5.728 11.782 3.682 2.782 8.51 4.091 14.401 4.091Zm64.643 18.328V71.839h27.412v19.965h1.227c2.21-6.955 5.974-12.274 11.292-16.038 5.319-3.763 11.456-5.645 18.329-5.645 1.555 0 3.355.082 5.237.163 1.964.164 3.601.328 4.91.573v25.938c-1.227-.41-3.109-.819-5.646-1.146a58.814 58.814 0 0 0-7.446-.49c-5.155 0-9.738 1.145-13.829 3.354-4.091 2.209-7.282 5.236-9.655 9.164-2.373 3.927-3.519 8.427-3.519 13.5v70.448h-28.312ZM222.077 39.192l-8.019 125.923L137.387 0l84.69 39.192Zm-53.105 162.825-57.933 33.056-57.934-33.056 11.783-28.556h92.301l11.783 28.556ZM111.039 62.675l30.357 73.803H80.681l30.358-73.803ZM7.937 165.115 0 39.192 84.69 0 7.937 165.115Z"
-          />
-        </g>
-        <defs>
-          <radialGradient
-            id="c"
-            cx="0"
-            cy="0"
-            r="1"
-            gradientTransform="rotate(118.122 171.182 60.81) scale(205.794)"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop stop-color="#FF41F8" />
-            <stop offset=".707" stop-color="#FF41F8" stop-opacity=".5" />
-            <stop offset="1" stop-color="#FF41F8" stop-opacity="0" />
-          </radialGradient>
-          <linearGradient
-            id="b"
-            x1="0"
-            x2="982"
-            y1="192"
-            y2="192"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop stop-color="#F0060B" />
-            <stop offset="0" stop-color="#F0070C" />
-            <stop offset=".526" stop-color="#CC26D5" />
-            <stop offset="1" stop-color="#7702FF" />
-          </linearGradient>
-          <clipPath id="a"><path fill="#fff" d="M0 0h982v239H0z" /></clipPath>
-        </defs>
-      </svg>
-      <h1>Hello, {{ title }}</h1>
-      <p>Congratulations! Your app is running. 🎉</p>
+<!-- Header -->
+<header class="bix-static" appScrollToggle>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <nav class="navbar navbar-expand-lg bix-navbar">
+                    <!-- Header Logo Start -->
+                    <a class="navbar-brand" href="#">
+                        <img src="../assets/img/logo/logo.png" alt="logo" class="bix-logo">
+                        <img src="../assets/img/logo/logo-dark.png" alt="logo" class="dark-logo">
+                    </a>
+                    <!-- Header Logo End -->
+                    <button class="navbar-toggler shadow-none" (click)="openMenu()" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="ri-menu-2-line"></i>
+                    </button>
+                    <div class="bix-main-menu" id="navbarSupportedContent">
+                        <ul class="navbar-nav bix-menu" id="top-menu">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#home">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#about">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#bixexperience">Experience</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#services">Services</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#projects">projects</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#testimonial">Testimonial</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
     </div>
-    <div class="divider" role="separator" aria-label="Divider"></div>
-    <div class="right-side">
-      <div class="pill-group">
-        @for (item of [
-          { title: 'Explore the Docs', link: 'https://angular.dev' },
-          { title: 'Learn with Tutorials', link: 'https://angular.dev/tutorials' },
-          { title: 'CLI Docs', link: 'https://angular.dev/tools/cli' },
-          { title: 'Angular Language Service', link: 'https://angular.dev/tools/language-service' },
-          { title: 'Angular DevTools', link: 'https://angular.dev/tools/devtools' },
-        ]; track item.title) {
-          <a
-            class="pill"
-            [href]="item.link"
-            target="_blank"
-            rel="noopener"
-          >
-            <span>{{ item.title }}</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="14"
-              viewBox="0 -960 960 960"
-              width="14"
-              fill="currentColor"
-            >
-              <path
-                d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z"
-              />
-            </svg>
-          </a>
-        }
-      </div>
-      <div class="social-links">
-        <a
-          href="https://github.com/angular/angular"
-          aria-label="Github"
-          target="_blank"
-          rel="noopener"
-        >
-          <svg
-            width="25"
-            height="24"
-            viewBox="0 0 25 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            alt="Github"
-          >
-            <path
-              d="M12.3047 0C5.50634 0 0 5.50942 0 12.3047C0 17.7423 3.52529 22.3535 8.41332 23.9787C9.02856 24.0946 9.25414 23.7142 9.25414 23.3871C9.25414 23.0949 9.24389 22.3207 9.23876 21.2953C5.81601 22.0377 5.09414 19.6444 5.09414 19.6444C4.53427 18.2243 3.72524 17.8449 3.72524 17.8449C2.61064 17.082 3.81137 17.0973 3.81137 17.0973C5.04697 17.1835 5.69604 18.3647 5.69604 18.3647C6.79321 20.2463 8.57636 19.7029 9.27978 19.3881C9.39052 18.5924 9.70736 18.0499 10.0591 17.7423C7.32641 17.4347 4.45429 16.3765 4.45429 11.6618C4.45429 10.3185 4.9311 9.22133 5.72065 8.36C5.58222 8.04931 5.16694 6.79833 5.82831 5.10337C5.82831 5.10337 6.85883 4.77319 9.2121 6.36459C10.1965 6.09082 11.2424 5.95546 12.2883 5.94931C13.3342 5.95546 14.3801 6.09082 15.3644 6.36459C17.7023 4.77319 18.7328 5.10337 18.7328 5.10337C19.3942 6.79833 18.9789 8.04931 18.8559 8.36C19.6403 9.22133 20.1171 10.3185 20.1171 11.6618C20.1171 16.3888 17.2409 17.4296 14.5031 17.7321C14.9338 18.1012 15.3337 18.8559 15.3337 20.0084C15.3337 21.6552 15.3183 22.978 15.3183 23.3779C15.3183 23.7009 15.5336 24.0854 16.1642 23.9623C21.0871 22.3484 24.6094 17.7341 24.6094 12.3047C24.6094 5.50942 19.0999 0 12.3047 0Z"
-            />
-          </svg>
-        </a>
-        <a
-          href="https://twitter.com/angular"
-          aria-label="Twitter"
-          target="_blank"
-          rel="noopener"
-        >
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            alt="Twitter"
-          >
-            <path
-              d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
-            />
-          </svg>
-        </a>
-        <a
-          href="https://www.youtube.com/channel/UCbn1OgGei-DV7aSRo_HaAiw"
-          aria-label="Youtube"
-          target="_blank"
-          rel="noopener"
-        >
-          <svg
-            width="29"
-            height="20"
-            viewBox="0 0 29 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            alt="Youtube"
-          >
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M27.4896 1.52422C27.9301 1.96749 28.2463 2.51866 28.4068 3.12258C29.0004 5.35161 29.0004 10 29.0004 10C29.0004 10 29.0004 14.6484 28.4068 16.8774C28.2463 17.4813 27.9301 18.0325 27.4896 18.4758C27.0492 18.9191 26.5 19.2389 25.8972 19.4032C23.6778 20 14.8068 20 14.8068 20C14.8068 20 5.93586 20 3.71651 19.4032C3.11363 19.2389 2.56449 18.9191 2.12405 18.4758C1.68361 18.0325 1.36732 17.4813 1.20683 16.8774C0.613281 14.6484 0.613281 10 0.613281 10C0.613281 10 0.613281 5.35161 1.20683 3.12258C1.36732 2.51866 1.68361 1.96749 2.12405 1.52422C2.56449 1.08095 3.11363 0.76113 3.71651 0.596774C5.93586 0 14.8068 0 14.8068 0C14.8068 0 23.6778 0 25.8972 0.596774C26.5 0.76113 27.0492 1.08095 27.4896 1.52422ZM19.3229 10L11.9036 5.77905V14.221L19.3229 10Z"
-            />
-          </svg>
-        </a>
-      </div>
+</header>
+
+<!-- Mobile-menu -->
+<app-responsive-menu></app-responsive-menu>
+
+<!-- Hero -->
+<section class="section-hero padding-t-100 padding-b-50" id="home">
+    <div class="first-name">Mohit</div>
+    <div class="last-name">Soni</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-12">
+                <div class="bix-hero-img" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="600">
+                    <div class="hero-inner-img">
+                        <img src="../assets/img/hero/hero.png" alt="hero" data-offset="30" class="hero-parallax">
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-12">
+                <div class="bix-hero-contact">
+                    <h4 data-aos="fade-up" data-aos-duration="2000" data-aos-delay="600">Hi, I am</h4>
+                    <h1 data-aos="fade-up" data-aos-duration="2000" data-aos-delay="700">Mohit Soni</h1>
+                    <p data-aos="fade-up" data-aos-duration="2000" data-aos-delay="800">I am a
+                        <span>MEAN Stack Developer</span>
+                    </p>
+                    <div class="bix-buttons" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="900">
+                        <button type="button" class="bix-button">Download CV</button>
+                        <button type="button" class="bix-button" data-bs-toggle="modal" data-bs-target="#bid">Hire
+                            Me <i class="ri-arrow-right-up-line"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</main>
+</section>
 
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- About -->
+<section class="section-about padding-tb-50" id="about">
+    <div class="container">
+        <div class="row mb-minus-30">
+            <div class="col-12">
+                <div class="bix-banner" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="400">
+                    <h4>About <span>Me</span></h4>
+                </div>
+                <div class="bix-banner-line" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="600">
+                    <span class="inner-border"></span>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-6 order-xl-1 order-md-2 mb-30" data-aos="fade-up" data-aos-duration="2000"
+                data-aos-delay="400">
+                <div class="bix-about-contact">
+                    <h5>“Creativity bleeds from the pen of inspiration.”</h5>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo
+                        viverra maecenas accumsan lacus vel facilisis. </p>
+                    <div class="about-name">
+                        <h6>MEAN Stack Devloper</h6>
+                        <p>Mohit Soni</p>
+                        <div class="inner-sign-items">
+                            <img src="../assets/img/about/sign.png" alt="sign" class="white-mode">
+                            <img src="../assets/img/about/sign-dark.png" alt="sign" class="dark-mode">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-12 order-xl-2 order-md-1 mb-30" data-aos="fade-up" data-aos-duration="2000"
+                data-aos-delay="600">
+                <div class="bix-about-img">
+                    <img src="../assets/img/about/about.jpg" alt="about">
+                    <div class="bix-rounded-circle">
+                        <a href=javascript:void(0)>
+                            <svg viewBox="0 0 100 100" width="100" height="100">
+                                <defs>
+                                    <path id="circle" d=" M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0">
+                                    </path>
+                                </defs>
+                                <text>
+                                    <textPath xlink:href="#circle">About Me&nbsp; - About Me &nbsp;-&nbsp;About Me
+                                        &nbsp;-
+                                    </textPath>
+                                </text>
+                            </svg>
+                            <div class="inner-contact">
+                                <i class="ri-arrow-right-up-line"></i>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="inner-item">
+                        <a class="box-inner" href="javascript:void(0)">
+                            <img src="../assets/img/about/item-1.png" alt="item-1">
+                        </a>
+                        <a class="box-inner" href="javascript:void(0)">
+                            <img src="../assets/img/about/item-2.png" alt="item-2" class="white-mode">
+                            <img src="../assets/img/about/item-2-dark.png" alt="item-2-dark" class="dark-mode">
+                        </a>
+                        <a class="box-inner" href="javascript:void(0)">
+                            <img src="../assets/img/about/item-3.png" alt="item-3">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-6 order-xl-3 order-md-3 mb-30">
+                <div class="bix-skill" id="progress">
+                    <div class="skill-inner-box bg-color-one" data-aos="fade-up" data-aos-duration="2000"
+                        data-aos-delay="600">
+                        <div class="skill-logo">
+                            <a href="javascript:void(0)">
+                                <img src="../assets/img/about/logo-1.png" alt="about-logo-1">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img src="../assets/img/about/logo-3.png" alt="about-logo-3">
+                            </a>
+                        </div>
+                        <div class="skill-contact">
+                            <svg class="progress noselect" data-progress="90" x="0px" y="0px" viewBox="0 0 80 80">
+                                <path class="track" d="M5,40a35,35 0 1,0 70,0a35,35 0 1,0 -70,0" />
+                                <path class="fill" d="M5,40a35,35 0 1,0 70,0a35,35 0 1,0 -70,0" />
+                                <text class="value" x="50%" y="58%">0%</text>
+                            </svg>
+                            <div class="skill-box-contact">
+                                <h4>Frontend <span>(Html, React)</span></h4>
+                                <p>There are many variations of passages of
+                                    available ducimus veritatis.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-inner-box bg-color-two" data-aos="fade-up" data-aos-duration="2000"
+                        data-aos-delay="800">
+                        <div class="skill-logo">
+                            <a href="javascript:void(0)">
+                                <img src="../assets/img/about/logo-4.png" alt="about-logo-4">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img src="../assets/img/about/logo-5.png" alt="about-logo-5">
+                            </a>
+                        </div>
+                        <div class="skill-contact">
+                            <svg class="progress blue noselect" data-progress="80" x="0px" y="0px" viewBox="0 0 80 80">
+                                <path class="track" d="M5,40a35,35 0 1,0 70,0a35,35 0 1,0 -70,0" />
+                                <path class="fill" d="M5,40a35,35 0 1,0 70,0a35,35 0 1,0 -70,0" />
+                                <text class="value" x="50%" y="58%">0%</text>
+                            </svg>
+                            <div class="skill-box-contact">
+                                <h4>Backend <span>(Php, Python)</span></h4>
+                                <p>There are many variations of passages of
+                                    available ducimus veritatis.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-inner-box bg-color-three" data-aos="fade-up" data-aos-duration="2000"
+                        data-aos-delay="1000">
+                        <div class="skill-logo">
+                            <a href="javascript:void(0)">
+                                <img src="../assets/img/about/logo-6.png" alt="about-logo-6">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img src="../assets/img/about/logo-7.png" alt="about-logo-7">
+                            </a>
+                        </div>
+                        <div class="skill-contact">
+                            <svg class="progress noselect" data-progress="85" x="0px" y="0px" viewBox="0 0 80 80">
+                                <path class="track" d="M5,40a35,35 0 1,0 70,0a35,35 0 1,0 -70,0" />
+                                <path class="fill" d="M5,40a35,35 0 1,0 70,0a35,35 0 1,0 -70,0" />
+                                <text class="value" x="50%" y="58%">0%</text>
+                            </svg>
+                            <div class="skill-box-contact">
+                                <h4>Graphics <span>(Photoshop, sketch)</span></h4>
+                                <p>There are many variations of passages of
+                                    available ducimus veritatis.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
+<!-- Achievement -->
+<section class="section-achievement padding-tb-50" id="bixexperience">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="bix-banner" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="400">
+                    <h4>What I <span>Achieve</span></h4>
+                </div>
+                <div class="bix-banner-line" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="600">
+                    <span class="inner-border"></span>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="bix-activity-tabs">
+                    <ul class="nav nav-tabs" role="tablist" data-aos="fade-up" data-aos-duration="2000"
+                        data-aos-delay="400">
+                        <li class="nav-item" role="presentation">
+                            <button type="button" class="nav-link active" id="education-tab" data-bs-toggle="tab"
+                                data-bs-target="#education" role="tab" aria-controls="education"
+                                aria-selected="true">Education</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button type="button" class="nav-link" id="experience-tab" data-bs-toggle="tab"
+                                data-bs-target="#experience" role="tab" aria-controls="experience"
+                                aria-selected="false">Experience</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane fade show active" id="education" role="tabpanel"
+                            aria-labelledby="education-tab">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="bix-achievement">
+                                        <div class="bix-achievement-inner border-r">
+                                            <div class="bix-achievement-box left" data-aos="fade-up"
+                                                data-aos-duration="2000" data-aos-delay="400">
+                                                <div class="achievement-year">
+                                                    <span>2022-24</span>
+                                                </div>
+                                                <h4>Master in Comuter Engineering <span>- First Class</span></h4>
+                                                <p>It uses a dictionary of over 200 Latin words, combined with a
+                                                    handful of model sentence structures, to generate Lorem Ipsum
+                                                    which looks reasonable. The generated Lorem Ipsum is therefore.
+                                                </p>
+                                            </div>
+                                            <div class="bix-achievement-box left mt-150" data-aos="fade-up"
+                                                data-aos-duration="2000" data-aos-delay="600">
+                                                <div class="achievement-year">
+                                                    <span>2017-20</span>
+                                                </div>
+                                                <h4>Higher Secondary <span>- 92.54%</span></h4>
+                                                <p>It uses a dictionary of over 200 Latin words, combined with a
+                                                    handful of model sentence structures, to generate Lorem Ipsum
+                                                    which looks reasonable. The generated Lorem Ipsum is therefore.
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="bix-achievement-inner border-l">
+                                            <div class="bix-achievement-box right mt-150" data-aos="fade-up"
+                                                data-aos-duration="2000" data-aos-delay="500">
+                                                <div class="achievement-year">
+                                                    <span>2020-22</span>
+                                                </div>
+                                                <h4>Bachelor in Computer Engineering <span>- Second Class</span>
+                                                </h4>
+                                                <p>It uses a dictionary of over 200 Latin words, combined with a
+                                                    handful of model sentence structures, to generate Lorem Ipsum
+                                                    which looks reasonable. The generated Lorem Ipsum is therefore.
+                                                </p>
+                                            </div>
+                                            <div class="bix-achievement-box right mt-150" data-aos="fade-up"
+                                                data-aos-duration="2000" data-aos-delay="700">
+                                                <div class="achievement-year">
+                                                    <span>2015-17</span>
+                                                </div>
+                                                <h4>Primary School <span>- A+ Grade</span></h4>
+                                                <p>It uses a dictionary of over 200 Latin words, combined with a
+                                                    handful of model sentence structures, to generate Lorem Ipsum
+                                                    which looks reasonable. The generated Lorem Ipsum is therefore.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="experience" role="tabpanel" aria-labelledby="experience-tab">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="bix-achievement">
+                                        <div class="bix-achievement-inner border-r">
+                                            <div class="bix-achievement-box left mt-150" data-aos="fade-up"
+                                                data-aos-duration="2000" data-aos-delay="400">
+                                                <div class="achievement-year">
+                                                    <span>2022-24</span>
+                                                </div>
+                                                <h4>Linkedin <span>- Team Leader</span></h4>
+                                                <p>It uses a dictionary of over 200 Latin words, combined with a
+                                                    handful of model sentence structures, to generate Lorem Ipsum
+                                                    which looks reasonable. The generated Lorem Ipsum is therefore.
+                                                </p>
+                                            </div>
+                                            <div class="bix-achievement-box left mt-150" data-aos="fade-up"
+                                                data-aos-duration="2000" data-aos-delay="600">
+                                                <div class="achievement-year">
+                                                    <span>2017-20</span>
+                                                </div>
+                                                <h4>Facebook Company <span>- Sr. Developer</span></h4>
+                                                <p>It uses a dictionary of over 200 Latin words, combined with a
+                                                    handful of model sentence structures, to generate Lorem Ipsum
+                                                    which looks reasonable. The generated Lorem Ipsum is therefore.
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="bix-achievement-inner border-l">
+                                            <div class="bix-achievement-box right" data-aos="fade-up"
+                                                data-aos-duration="2000" data-aos-delay="500">
+                                                <div class="achievement-year">
+                                                    <span>2020-22</span>
+                                                </div>
+                                                <h4>Whatsapp Company <span>- Team Leader</span>
+                                                </h4>
+                                                <p>It uses a dictionary of over 200 Latin words, combined with a
+                                                    handful of model sentence structures, to generate Lorem Ipsum
+                                                    which looks reasonable. The generated Lorem Ipsum is therefore.
+                                                </p>
+                                            </div>
+                                            <div class="bix-achievement-box right mt-150" data-aos="fade-up"
+                                                data-aos-duration="2000" data-aos-delay="700">
+                                                <div class="achievement-year">
+                                                    <span>2015-17</span>
+                                                </div>
+                                                <h4>Twitter Company <span>- Jr. Developer</span></h4>
+                                                <p>It uses a dictionary of over 200 Latin words, combined with a
+                                                    handful of model sentence structures, to generate Lorem Ipsum
+                                                    which looks reasonable. The generated Lorem Ipsum is therefore.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-<router-outlet />
+<!-- Services -->
+<section class="section-services padding-tb-50" id="services">
+    <div class="container">
+        <div class="row mb-minus-24">
+            <div class="col-xl-3 col-md-6 col-12 mb-24" data-aos="fade-up" data-aos-duration="2000"
+                data-aos-delay="200">
+                <div class="bix-services bg-services-one">
+                    <div class="services-image">
+                        <div class="inner-image">
+                            <span class="ring"></span>
+                            <img src="../assets/img/services/1.png" alt="services">
+                        </div>
+                    </div>
+                    <div class="services-contact">
+                        <h5>Graphics Design</h5>
+                        <p>Develop the Visual Identity of Your Business.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6 col-12 mb-24" data-aos="fade-up" data-aos-duration="2000"
+                data-aos-delay="400">
+                <div class="bix-services bg-services-two">
+                    <div class="services-image">
+                        <div class="inner-image">
+                            <span class="ring"></span>
+                            <img src="../assets/img/services/2.png" alt="services">
+                        </div>
+                    </div>
+                    <div class="services-contact">
+                        <h5>Web Design</h5>
+                        <p>Connect With Your Users, Not Just Your Business.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6 col-12 mb-24" data-aos="fade-up" data-aos-duration="2000"
+                data-aos-delay="600">
+                <div class="bix-services bg-services-three">
+                    <div class="services-image">
+                        <div class="inner-image">
+                            <span class="ring"></span>
+                            <img src="../assets/img/services/3.png" alt="services">
+                        </div>
+                    </div>
+                    <div class="services-contact">
+                        <h5>App Development</h5>
+                        <p>We Develop the Visual Identity of Your Business.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6 col-12 mb-24" data-aos="fade-up" data-aos-duration="2000"
+                data-aos-delay="800">
+                <div class="bix-services bg-services-four">
+                    <div class="services-image">
+                        <div class="inner-image">
+                            <span class="ring"></span>
+                            <img src="../assets/img/services/4.png" alt="services">
+                        </div>
+                    </div>
+                    <div class="services-contact">
+                        <h5>Seo & Marketing</h5>
+                        <p>Taking your site at the top of Google's ranking.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Projects -->
+<section class="section-projects padding-tb-50" id="projects">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="bix-banner" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="400">
+                    <h4>Featured <span>Projects</span></h4>
+                </div>
+                <div class="bix-banner-line" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="600">
+                    <span class="inner-border"></span>
+                </div>
+            </div>
+            <div class="col-lg-12 projects-content">
+                <div class="controls bix-projects-tabs" data-aos="fade-up" data-aos-duration="2000"
+                    data-aos-delay="400">
+                    <ul id="filters" class="clearfix">
+                        <li class="filter active" data-filter="all">All</li>
+                        <li class="filter" data-filter=".web">Web</li>
+                        <li class="filter" data-filter=".applications">Applications</li>
+                        <li class="filter" data-filter=".graphics">Graphics</li>
+                        <li class="filter" data-filter=".templates">Templates</li>
+                    </ul>
+                </div>
+                <div class="item-grid" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="600">
+                    <div class="row mb-minus-24">
+                        <div class="col-xl-4 col-md-6 col-12 mb-24 item web graphics applications">
+                            <div class="bix-project-card">
+                                <div class="project-image">
+                                    <a href="../assets/img/project/11.jpg" data-fancybox="gallery">
+                                        <div class="overlay-project-card"></div>
+                                        <img src="../assets/img/project/1.jpg" alt="project-1">
+                                    </a>
+                                </div>
+                                <div class="project-contact">
+                                    <h5><a href=javascript:void(0)>Minimart - eCommerce Template</a></h5>
+                                    <span>Graphics | Web | App</span>
+                                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt fugit
+                                        vitae quod fugiat culpa iste laborum.
+                                        <a href="javascript:void(0)">Read More</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-md-6 col-12 mb-24 item applications graphics templates">
+                            <div class="bix-project-card">
+                                <div class="project-image">
+                                    <a href="../assets/img/project/33.jpg" data-fancybox="gallery">
+                                        <div class="overlay-project-card"></div>
+                                        <img src="../assets/img/project/3.jpg" alt="project-3">
+                                    </a>
+                                </div>
+                                <div class="project-contact">
+                                    <h5><a href=javascript:void(0)>Luxurious - Admin Dashboard</a></h5>
+                                    <span>App | Templates | Graphics</span>
+                                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt fugit
+                                        vitae quod fugiat culpa iste laborum.
+                                        <a href="javascript:void(0)">Read More</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-md-6 col-12 mb-24 item web applications graphics">
+                            <div class="bix-project-card">
+                                <div class="project-image">
+                                    <a href="../assets/img/project/22.jpg" data-fancybox="gallery">
+                                        <div class="overlay-project-card"></div>
+                                        <img src="../assets/img/project/2.jpg" alt="project-2">
+                                    </a>
+                                </div>
+                                <div class="project-contact">
+                                    <h5><a href=javascript:void(0)>Carrot - eCommerce + Admin</a></h5>
+                                    <span>Graphics | App | Web</span>
+                                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt fugit
+                                        vitae quod fugiat culpa iste laborum.
+                                        <a href="javascript:void(0)">Read More</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-md-6 col-12 mb-24 item web templates graphics">
+                            <div class="bix-project-card">
+                                <div class="project-image">
+                                    <a href="../assets/img/project/44.jpg" data-fancybox="gallery">
+                                        <div class="overlay-project-card"></div>
+                                        <img src="../assets/img/project/4.jpg" alt="project-4">
+                                    </a>
+                                </div>
+                                <div class="project-contact">
+                                    <h5><a href=javascript:void(0)>Guidex - Help Desk</a></h5>
+                                    <span>Web | Templates | Graphics</span>
+                                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt fugit
+                                        vitae quod fugiat culpa iste laborum. <a href="javascript:void(0)">Read
+                                            More</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-md-6 col-12 mb-24 item applications templates">
+                            <div class="bix-project-card">
+                                <div class="project-image">
+                                    <a href="../assets/img/project/55.jpg" data-fancybox="gallery">
+                                        <div class="overlay-project-card"></div>
+                                        <img src="../assets/img/project/5.jpg" alt="project-5">
+                                    </a>
+                                </div>
+                                <div class="project-contact">
+                                    <h5><a href=javascript:void(0)>Borox - Personal Portfolio</a></h5>
+                                    <span>App | Templates</span>
+                                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt fugit
+                                        vitae quod fugiat culpa iste laborum. <a href="javascript:void(0)">Read
+                                            More</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-md-6 col-12 mb-24 item web graphics templates">
+                            <div class="bix-project-card">
+                                <div class="project-image">
+                                    <a href="../assets/img/project/66.jpg" data-fancybox="gallery">
+                                        <div class="overlay-project-card"></div>
+                                        <img src="../assets/img/project/6.jpg" alt="project-6">
+                                    </a>
+                                </div>
+                                <div class="project-contact">
+                                    <h5><a href=javascript:void(0)>Masterly - Personal Portfolio</a></h5>
+                                    <span>Graphics | Templates | Web</span>
+                                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt fugit
+                                        vitae quod fugiat culpa iste laborum. <a href="javascript:void(0)">Read
+                                            More</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Hire -->
+<section class="section-hire margin-tb-50">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="bix-hire-banner">
+                    <div class="overlay"></div>
+                    <div class="bix-hire-contact">
+                        <h2 data-aos="fade-up" data-aos-duration="2000" data-aos-delay="200">Good <span>Idea</span>
+                        </h2>
+                        <h4 data-aos="fade-up" data-aos-duration="2000" data-aos-delay="400">Why not we bond each
+                            other?</h4>
+                        <p data-aos="fade-up" data-aos-duration="2000" data-aos-delay="600">Lorem ipsum dolor sit
+                            amet consectetur adipisicing elit. Nam perferendis laudantium ipsa
+                            fugiat minima debitis. Magni veritatis tenetur perferendis delectus?</p>
+                        <div class="inner-circle-items" data-aos="fade-up" data-aos-duration="2000"
+                            data-aos-delay="800">
+                            <div class="bix-rounded-circle">
+                                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#bid">
+                                    <svg viewBox="0 0 100 100" width="100" height="100">
+                                        <defs>
+                                            <path id="circle2"
+                                                d=" M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0">
+                                            </path>
+                                        </defs>
+                                        <text>
+                                            <textPath xlink:href="#circle">
+                                                Hire Me - Hire Me - Hire Me - Hire -
+                                            </textPath>
+                                        </text>
+                                    </svg>
+                                    <div class="inner-contact">
+                                        <i class="ri-arrow-right-up-line"></i>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials -->
+<section class="section-testimonials padding-tb-50" id="testimonial">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="bix-banner" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="400">
+                    <h4>Echoes of <span>Brilliance</span></h4>
+                </div>
+                <div class="bix-banner-line" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="600">
+                    <span class="inner-border"></span>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="bix-testimonials" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="800">
+                    <img src="../assets/img/testimonials/img-1.png" alt="testimonials-1" class="testimonials-img-1">
+                    <img src="../assets/img/testimonials/img-2.png" alt="testimonials-2" class="testimonials-img-2">
+                    <img src="../assets/img/testimonials/img-3.png" alt="testimonials-3" class="testimonials-img-3">
+                    <img src="../assets/img/testimonials/img-4.png" alt="testimonials-4" class="testimonials-img-4">
+                    <img src="../assets/img/testimonials/img-5.png" alt="testimonials-5" class="testimonials-img-5">
+                    <img src="../assets/img/testimonials/img-6.png" alt="testimonials-6" class="testimonials-img-6">
+                    <div class="inner-banner">
+                        <h4>Testimonials</h4>
+                    </div>
+                    <!-- Swiper container -->
+                    <div class="swiper-container testimonials-slider">
+                        <!-- Additional required wrapper -->
+                        <div class="swiper-wrapper">
+                            <!-- Slide 1 -->
+                            <div class="bix-testimonials-inner swiper-slide">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="testimonials-image">
+                                            <img src="../assets/img/testimonials/1.jpg" alt="testimonials">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="testimonials-contact">
+                                            <h4>Isabella Bianchi</h4>
+                                            <span>(Manager)</span>
+                                            <div class="inner-contact">
+                                                <p>"Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto
+                                                    at sint eligendi possimus perspiciatis asperiores reiciendis hic
+                                                    amet alias aut quaerat maiores blanditiis."</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Slide 2 -->
+                            <div class="bix-testimonials-inner swiper-slide">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="testimonials-image">
+                                            <img src="../assets/img/testimonials/2.jpg" alt="testimonials">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="testimonials-contact">
+                                            <h4>Saddika Alard</h4>
+                                            <span>(Team Leader)</span>
+                                            <div class="inner-contact">
+                                                <p>"Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto
+                                                    at sint eligendi possimus perspiciatis asperiores reiciendis hic
+                                                    amet alias aut quaerat maiores blanditiis."</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Slide 3 -->
+                            <div class="bix-testimonials-inner swiper-slide">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="testimonials-image">
+                                            <img src="../assets/img/testimonials/3.jpg" alt="testimonials">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="testimonials-contact">
+                                            <h4>Stephen Smith</h4>
+                                            <span>(Co Founder)</span>
+                                            <div class="inner-contact">
+                                                <p>"Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto
+                                                    at sint eligendi possimus perspiciatis asperiores reiciendis hic
+                                                    amet alias aut quaerat maiores blanditiis."</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Optional: Add pagination and navigation controls -->
+                        <!-- <div class="swiper-pagination"></div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div> -->
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Blog -->
+<section class="section-blog padding-t-50 padding-b-100" id="blog">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="bix-banner" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="400">
+                    <h4>Spotlight <span>Stories</span></h4>
+                </div>
+                <div class="bix-banner-line" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="600">
+                    <span class="inner-border"></span>
+                </div>
+            </div>
+            <div class="col-12">
+                <!-- Swiper container for blog carousel -->
+                <div class="swiper-container bix-blog-wrap">
+                    <div class="swiper-wrapper">
+                        <!-- Slide 1 -->
+                        <div class="bix-blog-box swiper-slide" data-aos="fade-up" data-aos-duration="2000"
+                            data-aos-delay="400">
+                            <div class="blog-img">
+                                <img src="../assets/img/blog/1.jpg" alt="blog-1">
+                            </div>
+                            <div class="blog-contact">
+                                <span>Marketing</span>
+                                <h4><a href="javascript:void(0)">Marketing Guide 5 steps to Success</a></h4>
+                                <p>Lorem ipsum dolor sit amet consectetur maiores doloremque explicabo neque pariatur
+                                    officia voluptates aut
+                                    illum!</p>
+                            </div>
+                        </div>
+                        <!-- Slide 2 -->
+                        <div class="bix-blog-box swiper-slide" data-aos="fade-up" data-aos-duration="2000"
+                            data-aos-delay="600">
+                            <div class="blog-img">
+                                <img src="../assets/img/blog/2.jpg" alt="blog-2">
+                            </div>
+                            <div class="blog-contact">
+                                <span>Business</span>
+                                <h4><a href="javascript:void(0)">Best Way to solve Business deal.</a></h4>
+                                <p>Lorem ipsum dolor sit amet consectetur maiores doloremque explicabo neque pariatur
+                                    officia voluptates aut
+                                    illum!</p>
+                            </div>
+                        </div>
+                        <!-- Slide 3 -->
+                        <div class="bix-blog-box swiper-slide" data-aos="fade-up" data-aos-duration="2000"
+                            data-aos-delay="800">
+                            <div class="blog-img">
+                                <img src="../assets/img/blog/3.jpg" alt="blog-3">
+                            </div>
+                            <div class="blog-contact">
+                                <span>Knowledge</span>
+                                <h4><a href="javascript:void(0)">Customer service stats to know in 2019.</a></h4>
+                                <p>Lorem ipsum dolor sit amet consectetur maiores doloremque explicabo neque pariatur
+                                    officia voluptates aut
+                                    illum!</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Optional: Pagination -->
+                    <!-- <div class="swiper-pagination"></div> -->
+
+                    <!-- Optional: Navigation buttons -->
+                    <!-- <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div> -->
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="bix-footer-contact">
+                    <p>&copy; <span id="copyright_year">{{currentYear}}</span> <a href="javascript:void(0)">Mohit</a>, All Rights
+                        Reserved.</p>
+                    <div class="logo-links">
+                        <a href="javascript:void(0)">
+                            <i class="ri-facebook-line"></i>
+                        </a>
+                        <a href="javascript:void(0)">
+                            <i class="ri-instagram-line"></i>
+                        </a>
+                        <a href="javascript:void(0)">
+                            <i class="ri-twitter-line"></i>
+                        </a>
+                        <a href="javascript:void(0)">
+                            <i class="ri-linkedin-line"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Tab to top -->
+<a href="#Top" class="back-to-top result-placeholder">
+    <i class="ri-arrow-up-line"></i>
+    <div class="back-to-top-wrap active-progress"  (click)="scrollToTop($event)">
+        <svg viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"></path>
+        </svg>
+    </div>
+</a>
+
+<!-- Modal -->
+<div class="bix-modal modal fade" id="bid">
+    <div class="bix-modal-dialog modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="bix-contact-tabs">
+                    <ul class="nav nav-tabs" role="tablist" data-aos="fade-up" data-aos-duration="2000"
+                        data-aos-delay="400">
+                        <li class="nav-item" role="presentation">
+                            <button type="button" class="nav-link active" id="freelancer-tab" data-bs-toggle="tab"
+                                data-bs-target="#freelancer" role="tab" aria-controls="freelancer"
+                                aria-selected="true">Freelancer</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button type="button" class="nav-link" id="job-tab" data-bs-toggle="tab"
+                                data-bs-target="#job" role="tab" aria-controls="job" aria-selected="false">Job</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane fade show active" id="freelancer" role="tabpanel"
+                            aria-labelledby="freelancer-tab">
+                            <div class="col-12">
+                                <form id="contact-form">
+                                    <div class="form-group">
+                                        <input type="text" name="Name" placeholder="Name">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="email" name="Email" placeholder="Email">
+                                    </div>
+                                    <div class="form-group">
+                                        <select class="form-select" aria-label="Select Method">
+                                            <option selected="">Fixed Rate</option>
+                                            <option value="1">Hourly Rate</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <input name="text" placeholder="Offer ex $1900" type="email">
+                                    </div>
+                                    <div class="form-group">
+                                        <textarea name="your-comment" placeholder="Offer Letter"></textarea>
+                                    </div>
+                                    <div class="bix-review-buttons">
+                                        <button type="submit" class="bix-button" value="Submit">Submit</button>
+                                        <button type="button" class="bix-button" data-bs-dismiss="modal"
+                                            aria-label="Close">Close</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="job" role="tabpanel" aria-labelledby="job-tab">
+                            <div class="col-12">
+                                <form>
+                                    <div class="form-group">
+                                        <input type="text" name="Name" placeholder="Name">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="email" name="Email" placeholder="Email">
+                                    </div>
+                                    <div class="form-group">
+                                        <select class="form-select" aria-label="Select Method">
+                                            <option selected="">Virtual Job</option>
+                                            <option value="1">Office Job</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <input name="text" placeholder="Offer Salary ex $1500/Mo" type="email">
+                                    </div>
+                                    <div class="form-group">
+                                        <textarea name="your-comment" placeholder="Offer Letter"></textarea>
+                                    </div>
+                                    <div class="bix-review-buttons">
+                                        <button type="submit" class="bix-button" value="Submit">Submit</button>
+                                        <button type="button" class="bix-button" data-bs-dismiss="modal"
+                                            aria-label="Close">Close</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Feature tools -->
+<!-- <div class="bix-tools-sidebar-overlay"></div>
+<div class="bix-tools-sidebar">
+    <a href="javascript:void(0)" class="bix-tools-sidebar-toggle in-out">
+        <i class="ri-settings-3-line"></i>
+    </a>
+    <div class="bix-bar-title">
+        <h6>Tools</h6>
+        <a href="javascript:void(0)" class="close-tools"><i class="ri-close-line"></i></a>
+    </div>
+    <div class="bix-tools-detail">
+        <div class="bix-tools-block">
+            <h3>Select Color</h3>
+            <ul class="bix-color">
+                <li class="color-primary active-variant"></li>
+                <li class="color-1"></li>
+                <li class="color-2"></li>
+                <li class="color-3"></li>
+                <li class="color-4"></li>
+                <li class="color-5"></li>
+                <li class="color-6"></li>
+                <li class="color-7"></li>
+                <li class="color-8"></li>
+                <li class="color-9"></li>
+            </ul>
+        </div>
+        <div class="bix-tools-block">
+            <h3>Modes</h3>
+            <div class="bix-tools-rtl">
+                <div class="mode-primary bix-tools-item mode active-mode ltr" data-bix-mode-tool="ltr">
+                    <img src="../assets/img/tools/ltr.png" alt="ltr">
+                    <p>LTR</p>
+                </div>
+                <div class="mode-primary bix-tools-item mode rtl" data-bix-mode-tool="rtl">
+                    <img src="../assets/img/tools/rtl.png" alt="rtl">
+                    <p>RTL</p>
+                </div>
+            </div>
+        </div>
+        <div class="bix-tools-block">
+            <h3>Dark Modes</h3>
+            <div class="bix-tools-dark">
+                <div class="mode-primary bix-tools-item mode active-dark-mode light" data-bix-mode-tool="light">
+                    <img src="../assets/img/tools/light.png" alt="light">
+                    <p>Light</p>
+                </div>
+                <div class="bix-tools-item mode dark" data-bix-mode-tool="dark">
+                    <img src="../assets/img/tools/dark.png" alt="dark">
+                    <p>Dark</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
