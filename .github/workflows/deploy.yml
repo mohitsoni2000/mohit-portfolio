@@ -22,10 +22,10 @@ jobs:
         run: npm install
 
       - name: Build Angular app
-        run: npm run build --if-present
+        run: ng build --output-path docs --base-href /mohit-portfolio/ --if-present
 
       - name: Deploy to GitHub Pages
         uses: actions/configure-pages@v5.0.0
         with:
           github_token: ${{ secrets.REPO_TOKEN }}
-          publish_dir: ./dist/mohit-portfolio  # Ensure this path is correct
+          publish_dir: ./docs/browser # Ensure this path is correct
