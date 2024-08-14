@@ -33,7 +33,7 @@ jobs:
         rm -rf docs/browser
 
     - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@latest
+      uses: peaceiris/actions-github-pages@v3.1.12
       with:
         github_token: ${{ secrets.REPO_TOKEN }}
         publish_dir: ./docs
