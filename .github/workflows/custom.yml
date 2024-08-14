@@ -26,6 +26,6 @@ jobs:
           angular_dist_build_folder: dist/mohit-portfolio/browser
           
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
