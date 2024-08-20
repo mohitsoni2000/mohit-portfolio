@@ -6,7 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "deploy": "ng deploy --build-target=production --dir=dist/mohit-portfolio/browser",
+    "deploy": "ng deploy --build-target=production --base-href=/mohit-portfolio/ --dir=dist/mohit-portfolio/browser",
 
     "test": "ng test"
   },
