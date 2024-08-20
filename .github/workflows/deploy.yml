@@ -17,13 +17,18 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: 18  # Ensure compatibility with Angular 17
+        node-version: 20  # Ensure compatibility with Angular 17
 
     - name: Install dependencies
       run: npm install
 
     - name: Build the Angular app
       run: npm run build
+
+    - name: Configure Git user
+      run: |
+        git config --global user.name "mohitsoni2000"
+        git config --global user.email "pro.mohit2000@gmail.com"
 
     - name: Deploy to GitHub Pages
       env:
