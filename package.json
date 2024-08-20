@@ -6,7 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "deploy": "ng deploy  --repo=https://github.com/mohitsoni2000/mohit-portfolio.git --name='mohit-portfolio'",
+    "deploy": "ng deploy --repo=https://github.com/mohitsoni2000/mohit-portfolio.git --name='mohitsoni2000' --email=pro.mohit2000@gmail.com",
     "test": "ng test"
   },
   "private": true,
