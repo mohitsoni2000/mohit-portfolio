@@ -10,7 +10,7 @@ import { Component } from '@angular/core';
   template: `    <!-- Loader -->
   <div class="bix-loader" *ngIf="isLoading">
     <span class="loader"></span>
-    <img src="../../assets/img/logo/icon.png" alt="logo">
+    <img src="assets/img/logo/icon.png" alt="logo">
 </div>
 `,
   styleUrl: './loader.component.css'
