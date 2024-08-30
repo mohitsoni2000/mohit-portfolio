@@ -38,6 +38,7 @@
               "src/styles.css",
               "node_modules/aos/dist/aos.css",
               "node_modules/remixicon/fonts/remixicon.css",
+              "node_modules/locomotive-scroll/dist/locomotive-scroll.css",
               "node_modules/swiper/swiper-bundle.min.css"
             ],
             "scripts": [
